@@ -14,7 +14,7 @@
         <h2> text elements</h2>
         <h3>first paragraph</h3>
         <p>
-            <b>Lorem ipsum</b> dolor sit, amet consectetur adipisicing elit.
+            <b>Lorem ipsum</b> dolor sit, <i>amet</i> consectetur adipisicing elit.
             Voluptatem a reiciendis perferendis libero odio suscipit harum
             quas aperiam repudiandae, adipisci, similique labore, accusamus
             quo cupiditate natus nulla voluptatum cumque rerum.
@@ -22,12 +22,12 @@
 
         <h3>second</h3>
         <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            <strong> Lorem ipsum </strong> dolor sit, <em> amet </em> consectetur adipisicing elit.
             Voluptatem a reiciendis perferendis libero odio suscipit harum
             quas aperiam repudiandae, adipisci, similique labore, accusamus
             quo cupiditate natus nulla voluptatum cumque rerum.
         </p>
-        <h3>second</h3>
+        <h3>third</h3>
         <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Voluptatem a reiciendis perferendis libero odio suscipit harum
@@ -42,6 +42,146 @@
         <h2>Links</h2>
         <a href="author.html">Author</a>
         <a href="https://developer.mozilla.org/ru/docs/Web/HTML"> HTML</a>
+    </div>
+
+    <div>
+        <h3>list</h3>
+        <ol>
+            <li>
+                Winter
+                <ol>
+                    <li>
+                        december
+                    </li>
+                    <li>
+                        january
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Spring
+            </li>
+            <li>
+                Summer
+            </li>
+        </ol>
+        <ul>
+            <li>
+                mondey
+                <ul>
+                    <li>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                tuesday
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>image</h3>
+        <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/14A82/production/_116301648_gettyimages-1071204136.jpg"
+            alt="funny cat" width="200" height="300">
+        <img src="./images/cat.jpg" alt="cat">
+    </div>
+
+    <div>
+        <h3>table</h3>
+        <table border="2">
+            <tr>
+                <th>
+                    number
+                </th>
+                <th>
+                    name
+                </th>
+                <th>
+                    mark
+                </th>
+                <th colspan="3">
+                    col
+                </th>
+
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    1
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    3
+                </td>
+                <td colspan="2" rowspan="2">
+                    2*2
+                </td>
+                <td>
+                    2
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5
+                </td>
+                <td>
+                    6
+                </td>
+                <td>
+                    4
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    4
+                </td>
+                <td>
+                    5
+                </td>
+                <td>
+                    6
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    5
+                </td>
+                <td>
+                    <img src="./images/cat.jpg" alt="cat" width="30" height="30">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <h3>forms</h3>
+        <form>
+            <label>
+                text input
+                <input type="text">
+            </label>
+            <br>
+            <label for="password">password</label>
+            <input id="password" type="password">
+            <br>
+            <input type="email" placeholder="ex@mail.com">
+            <br>
+            <input type="number"> <br>
+            <input type="date"> <br>
+            <input type="time"> <br>
+            <label for="agree"> I agree</label><input id="agree" checked="checked" type="checkbox"> <br>
+            <label> male<input type="radio" name="gender" ></label> <br>
+            <label> female<input type="radio" name="gender" checked="checked"></label> <br>
+            <input type="submit" value="Send">
+        </form>
     </div>
 </body>
 
