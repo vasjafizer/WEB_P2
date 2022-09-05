@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML example</title>
+</head>
+
+<body>
+    <h1> HTML example </h1>
+    <div>
+        <h2> text elements</h2>
+        <h3>first paragraph</h3>
+        <p>
+            <b>Lorem ipsum</b> dolor sit, <i>amet</i> consectetur adipisicing elit.
+            Voluptatem a reiciendis perferendis libero odio suscipit harum
+            quas aperiam repudiandae, adipisci, similique labore, accusamus
+            quo cupiditate natus nulla voluptatum cumque rerum.
+        </p>
+
+        <h3>second</h3>
+        <p>
+            <strong> Lorem ipsum </strong> dolor sit, <em> amet </em> consectetur adipisicing elit.
+            Voluptatem a reiciendis perferendis libero odio suscipit harum
+            quas aperiam repudiandae, adipisci, similique labore, accusamus
+            quo cupiditate natus nulla voluptatum cumque rerum.
+        </p>
+        <h3>third</h3>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Voluptatem a reiciendis perferendis libero odio suscipit harum
+            quas aperiam repudiandae, adipisci, similique labore, accusamus
+            quo cupiditate natus nulla voluptatum cumque rerum.
+        </p>
+        <h6>h6</h6>
+        a<sup> 2</sup>+b <sup>2</sup> =c<sup>2</sup> </br>
+        <i> x <sub>1</sub> = 2 </i>
+    </div>
+    <div id="links">
+        <h2>Links</h2>
+        <a href="author.html">Author</a>
+        <a href="https://developer.mozilla.org/ru/docs/Web/HTML"> HTML</a>
+    </div>
+
+    <div>
+        <h3>list</h3>
+        <ol>
+            <li>
+                Winter
+                <ol>
+                    <li>
+                        december
+                    </li>
+                    <li>
+                        january
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Spring
+            </li>
+            <li>
+                Summer
+            </li>
+        </ol>
+        <ul>
+            <li>
+                mondey
+                <ul>
+                    <li>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                tuesday
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>image</h3>
+        <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/14A82/production/_116301648_gettyimages-1071204136.jpg"
+            alt="funny cat" width="200" height="300">
+        <img src="./images/cat.jpg" alt="cat">
+    </div>
+
+    <div>
+        <h3>table</h3>
+        <table border="2">
+            <tr>
+                <th>
+                    number
+                </th>
+                <th>
+                    name
+                </th>
+                <th>
+                    mark
+                </th>
+                <th colspan="3">
+                    col
+                </th>
+
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    1
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    3
+                </td>
+                <td colspan="2" rowspan="2">
+                    2*2
+                </td>
+                <td>
+                    2
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5
+                </td>
+                <td>
+                    6
+                </td>
+                <td>
+                    4
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    4
+                </td>
+                <td>
+                    5
+                </td>
+                <td>
+                    6
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    5
+                </td>
+                <td>
+                    <img src="./images/cat.jpg" alt="cat" width="30" height="30">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <h3>forms</h3>
+        <form method="get" action="#">
+            <fieldset>
+                <label>
+                    text input
+                    <input type="text" name="text">
+                </label>
+                <br>
+                <label for="password">password</label>
+                <input id="password" type="password" name="password">
+                <br>
+                <input type="email" placeholder="ex@mail.com" name="email">
+                <br>
+                <input type="number" name="age"> <br>
+                <input type="date" name="birthday"> <br>
+                <input type="time" name="time"> <br>
+            </fieldset>
+            <label for="agree" name="agree" value="agree"> I agree</label><input id="agree" checked="checked"
+                type="checkbox"> <br>
+            <fieldset>
+                <legend> select gender </legend>
+                <label> male<input type="radio" name="gender" value="m"></label> <br>
+                <label> female<input type="radio" name="gender" checked="checked" value="f"></label> <br>
+            </fieldset>
+            <label for="file">file</label> <input type="file" name="file"> <br>
+            <label for="image"> image </label><input type="image"> <br>
+
+            <select name="city" id="">
+                <option value="Uzhhorod">
+                    Ужгород
+                </option>
+                <option value="Irshava" selected>
+                    Іршава
+                </option>
+                <option value="Khust">
+                    Хуст
+                </option>
+            </select> <br>
+
+            <textarea name="" id="" cols="50" rows="3"></textarea> <br>
+            <input type="submit" value="Send">
+            <input type="reset" value="reset">
+            <br>
+            <button type="submit">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Symbol_OK.svg/1024px-Symbol_OK.svg.png" width="30" alt="ok">
+                Submit button
+            </button>
+            <button type="reset">reset</button>
+            <button type="button"> button </button>
+        </form>
+    </div>
+</body>
+
+</html>
