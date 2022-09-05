@@ -163,24 +163,54 @@
 
     <div>
         <h3>forms</h3>
-        <form>
-            <label>
-                text input
-                <input type="text">
-            </label>
-            <br>
-            <label for="password">password</label>
-            <input id="password" type="password">
-            <br>
-            <input type="email" placeholder="ex@mail.com">
-            <br>
-            <input type="number"> <br>
-            <input type="date"> <br>
-            <input type="time"> <br>
-            <label for="agree"> I agree</label><input id="agree" checked="checked" type="checkbox"> <br>
-            <label> male<input type="radio" name="gender" ></label> <br>
-            <label> female<input type="radio" name="gender" checked="checked"></label> <br>
+        <form method="get" action="#">
+            <fieldset>
+                <label>
+                    text input
+                    <input type="text" name="text">
+                </label>
+                <br>
+                <label for="password">password</label>
+                <input id="password" type="password" name="password">
+                <br>
+                <input type="email" placeholder="ex@mail.com" name="email">
+                <br>
+                <input type="number" name="age"> <br>
+                <input type="date" name="birthday"> <br>
+                <input type="time" name="time"> <br>
+            </fieldset>
+            <label for="agree" name="agree" value="agree"> I agree</label><input id="agree" checked="checked"
+                type="checkbox"> <br>
+            <fieldset>
+                <legend> select gender </legend>
+                <label> male<input type="radio" name="gender" value="m"></label> <br>
+                <label> female<input type="radio" name="gender" checked="checked" value="f"></label> <br>
+            </fieldset>
+            <label for="file">file</label> <input type="file" name="file"> <br>
+            <label for="image"> image </label><input type="image"> <br>
+
+            <select name="city" id="">
+                <option value="Uzhhorod">
+                    Ужгород
+                </option>
+                <option value="Irshava" selected>
+                    Іршава
+                </option>
+                <option value="Khust">
+                    Хуст
+                </option>
+            </select> <br>
+
+            <textarea name="" id="" cols="50" rows="3"></textarea> <br>
             <input type="submit" value="Send">
+            <input type="reset" value="reset">
+            <br>
+            <button type="submit">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Symbol_OK.svg/1024px-Symbol_OK.svg.png" width="30" alt="ok">
+                Submit button
+            </button>
+            <button type="reset">reset</button>
+            <button type="button"> button </button>
         </form>
     </div>
 </body>
