@@ -1,0 +1,74 @@
+/* переважний спосіб */
+h1 {
+    text-align: justify;
+    font-size: 50px;
+    border: 1px solid black;
+}
+
+h3#last-header {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.actual {
+    font-size: 16pt;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+ul.square-list{
+    list-style: square;
+}
+
+ul.square-list li {
+    text-transform: uppercase;
+    background-color: bisque;
+}
+
+ul.square-list{
+    text-transform: lowercase;
+}
+
+ul.square-list>li {
+    text-transform: capitalize;
+    background-color: aquamarine;
+}
+
+/*псевдокласи*/
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    background-color: blue;
+    color: red;
+}
+
+.zoom:hover{
+    font-size: 200%;
+}
+
+table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    width: 50px;
+    height: 50px;
+}
+
+tr:nth-child(3n+2){
+    background-color: bisque;
+}
+
+tr:first-child ,tr:last-child{
+    border-top: 5px dashed black;
+    border-bottom: 5px dashed black;
+}
+
+td:first-child {
+    background-color: chartreuse;
+}

@@ -10,6 +10,11 @@
 
 <body>
     <h1> HTML example </h1>
+
+    <h3> video </h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/LEgdBLC8Lrw" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
     <div>
         <h2> text elements</h2>
         <h3>first paragraph</h3>
@@ -206,13 +211,52 @@
             <input type="reset" value="reset">
             <br>
             <button type="submit">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Symbol_OK.svg/1024px-Symbol_OK.svg.png" width="30" alt="ok">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Symbol_OK.svg/1024px-Symbol_OK.svg.png"
+                    width="30" alt="ok">
                 Submit button
             </button>
             <button type="reset">reset</button>
             <button type="button"> button </button>
         </form>
     </div>
+    
+    <!--не семантична  -->
+    <div id="header">
+        <div class="nav"></div>
+    </div>
+
+    <div class="articles">
+        <div class="article"></div>
+        <div class="article"></div>
+        <div class="article"></div>
+    </div>
+
+    <div id="footer">
+
+    </div>
+    
+ <!--семантична  -->
+    <header>
+        <nav></nav>
+    </header>
+    <aside>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </aside>
+    <div class="articles">
+        <article>
+            <secton></secton>
+            <secton></secton>
+            <secton></secton>
+        </article>
+    </div>
+    <footer>
+        
+    </footer>
 </body>
 
 </html>
