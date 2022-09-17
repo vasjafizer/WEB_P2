@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/dom.js" defer></script>
+</head>
+
+<body>
+    <h1> DOM </h1>
+
+    <form action="#" method="post" class="login-form">
+        <h3> login form </h3>
+        <label for="login">Login</label>
+        <input style="color: blue;" type="text" id="login" name="login">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+        <button type="button" onclick="loginClick()"> Log in </button>
+        <button type="button" id="reset-button"> Reset </button>
+    </form>
+
+    <div class="list">
+        <h3> list </h3>
+        <ol id="list">
+        </ol>
+
+        <button type="button" id="show-list">Show list</button>
+    </div>
+</body>
+
+</html>
