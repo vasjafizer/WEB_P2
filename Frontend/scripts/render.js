@@ -109,6 +109,7 @@ class UsersWithDOM extends Users {
         this.render();
         this.addEventListners();
         this.createClickHadlers();
+        this.addErrorMessage();
     }
 
     // генеруємо HTML код таблиці користувачі та форм редагування та додавання нового користувача
@@ -194,6 +195,12 @@ class UsersWithDOM extends Users {
                 }
             });
             document.dispatchEvent(editUserEvent);
+        }
+    }
+    // функція виводу повідомлень про помилку
+    addErrorMessage(){
+        window.onerror = (error) => {
+            alert(error);
         }
     }
 }

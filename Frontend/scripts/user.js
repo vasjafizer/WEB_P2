@@ -10,9 +10,9 @@
 class User {
   constructor(username, password, image) {
     this.username = username;
-    this._password = password;
+    this.password = password;
     this.image = image;
-    this._id = User._idCounter++; // генеруємо унікальний ідентифікатор 0,1,2, ...
+    this._id = User._idCounter++; // генеруємо унікальний ідентифікатор 0, 1, 2, ...
   }
 
   get password() {
@@ -24,8 +24,11 @@ class User {
     return "*".repeat(this._password?.length);
   }
 
+  //Валідація довжини пароля
   set password(value) {
-    if (value.length < 3) throw "Password to short";
+    const MIN_PASSWORD_LENGTH  = 3;
+    if (value?.length < MIN_PASSWORD_LENGTH) 
+        throw `Password to short. Need more ${MIN_PASSWORD_LENGTH - value?.length} symbols`;
     this._password = value;
   }
 
