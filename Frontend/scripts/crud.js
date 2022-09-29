@@ -3,7 +3,7 @@
  * для колекції користувачів.
  */
 
-class Users {
+class UserCollection {
   constructor() {
     this.items = [];
   }

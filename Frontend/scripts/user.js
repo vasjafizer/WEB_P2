@@ -10,7 +10,7 @@
 class User {
   constructor(username, password, image) {
     this.username = username;
-    this.password = password;
+    this._password = password;
     this.image = image;
     this._id = User._idCounter++; // генеруємо унікальний ідентифікатор 0, 1, 2, ...
   }

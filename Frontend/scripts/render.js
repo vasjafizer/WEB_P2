@@ -2,7 +2,7 @@
 * клас доповнює можливості колекції користувачів відображатись на дисплеї
 */
 
-class UsersWithDOM extends Users {
+class UserCollectionWithDOM extends UserCollection  {
     //генеруємо рядок таблиці за вказаними даними користувача
     userToTableRowHtml(user) {
         return `

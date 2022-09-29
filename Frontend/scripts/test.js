@@ -2,7 +2,7 @@
  * тестовий приклад створення 2 користувачів та монтування таблиці
  */
 
-let users = new UsersWithDOM();
+let users = new UserCollectionWithDOM();
 
 users.add(
     new User(
