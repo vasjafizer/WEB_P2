@@ -1,16 +1,17 @@
 /*
  *Клас користувача
  * username - логін
- * _password - пароль
+ * _password - пароль не менше 3 символів
  * image - URL аватара
  * _idCounter - статична властивість, використовується для генрування унікального ідентифікатора.
  * setablePropertisList - список полів, які можна змінювати
  */
 
 class User {
+
   constructor(username, password, image) {
     this.username = username;
-    this._password = password;
+    this.password = password;
     this.image = image;
     this._id = User._idCounter++; // генеруємо унікальний ідентифікатор 0, 1, 2, ...
   }
@@ -26,7 +27,7 @@ class User {
 
   //Валідація довжини пароля
   set password(value) {
-    const MIN_PASSWORD_LENGTH  = 3;
+    const MIN_PASSWORD_LENGTH = 3;
     if (value?.length < MIN_PASSWORD_LENGTH) 
         throw `Password to short. Need more ${MIN_PASSWORD_LENGTH - value?.length} symbols`;
     this._password = value;

@@ -2,7 +2,7 @@
 * клас доповнює можливості колекції користувачів відображатись на дисплеї
 */
 
-class UserCollectionWithDOM extends UserCollection  {
+class UserCollectionWithDOM extends UserCollection {
     //генеруємо рядок таблиці за вказаними даними користувача
     userToTableRowHtml(user) {
         return `
@@ -37,12 +37,13 @@ class UserCollectionWithDOM extends UserCollection  {
         `;
     }
     // генеруємо таблицю користувачів
-    usersToTableHtml() {
+    get usersToTableHtml() {
         let rows = "";
         for (let user of this.getAll()) {
             rows += this.userToTableRowHtml(user);
         }
         return `
+            <h2> Users </h2>
             <table>
                 <tr>
                     <th>
@@ -69,7 +70,7 @@ class UserCollectionWithDOM extends UserCollection  {
         `;
     }
     // форма для додавання нового користувача    
-    addFormHtml() {
+    get addFormHtml() {
         return ` 
             <div id="add-user">
                 <form name="addForm" method="post" action="#">
@@ -86,7 +87,7 @@ class UserCollectionWithDOM extends UserCollection  {
         `;
     }
     //форма для редагування даних користувача
-    editFormHtml() {
+    get editFormHtml() {
         return ` 
             <div id="edit-user">
                 <form name="editForm" method="post" action="#">
@@ -114,7 +115,7 @@ class UserCollectionWithDOM extends UserCollection  {
 
     // генеруємо HTML код таблиці користувачі та форм редагування та додавання нового користувача
     render() {
-        this._parrent.innerHTML = this.usersToTableHtml() + this.addFormHtml() + this.editFormHtml();
+        this._parrent.innerHTML = this.usersToTableHtml + this.addFormHtml + this.editFormHtml;
     }
     // навішуємо слухачів події
     addEventListners() {
@@ -125,13 +126,7 @@ class UserCollectionWithDOM extends UserCollection  {
         });
         // додаємо нового користувача
         document.addEventListener("addUser", event => {
-            super.add(
-                new User(
-                    event.detail.username,
-                    event.detail.password,
-                    event.detail.image
-                )
-            );
+            super.create(event.detail);
             this.render();
         });
         //редагуэмо користувача
