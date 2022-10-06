@@ -3,6 +3,8 @@
 */
 
 class UserCollectionWithDOM extends UserCollection {
+    // значення для пошуку
+    searchString = "";
     //генеруємо рядок таблиці за вказаними даними користувача
     userToTableRowHtml(user) {
         return `
@@ -36,10 +38,30 @@ class UserCollectionWithDOM extends UserCollection {
         </tr>
         `;
     }
+
+    //допоміжний метод, який визначає яких користувачів требавиводити при рендері
+
+    getUsers() {
+        // якщо  задане значення для пошуку шукаємо користувачів ім'я яких починається із вказаного значення
+        if (this.searchString)
+            return this.getByUsernameStart(this.searchString);
+
+        // якщо не задане значення для пошуку, то виводимо всіх користувачів   
+        return this.getAll();
+    }
+
     // генеруємо таблицю користувачів
     get usersToTableHtml() {
+        //вибираємо яких користувачів шукати
+        let users = this.getUsers();
+        //якщо для виводу нема користувачів, то показуэмо відповідне повідомлення
+        if (users.length == 0)
+            return `
+                <h3> No users </h3>
+            `;
+        // якщо є користувачі то формуємо рядки таблиці
         let rows = "";
-        for (let user of this.getAll()) {
+        for (let user of users) {
             rows += this.userToTableRowHtml(user);
         }
         return `
@@ -64,14 +86,14 @@ class UserCollectionWithDOM extends UserCollection {
                 </tr>
                 ${rows}
             </table>
-            <button type="button" onclick="ShowAddUserForm()">
-                Add user
-            </button>
         `;
     }
     // форма для додавання нового користувача    
     get addFormHtml() {
-        return ` 
+        return `
+            <button type="button" onclick="ShowAddUserForm()">
+                Add user
+            </button> 
             <div id="add-user">
                 <form name="addForm" method="post" action="#">
                     <h3> Add User </h3>
@@ -104,6 +126,16 @@ class UserCollectionWithDOM extends UserCollection {
         `;
     }
 
+    get searchInputHtml() {
+        return `<input type="text" 
+            name="searchByName" 
+            id="searchByName"
+            placeholder="Enter username for search"
+            value="${this.searchString}"
+            onchange="Search()"
+        >`;
+    }
+
     //монтуємо компонент у вказаний батьківський та призначаємо обробку подій
     mount(parrent) {
         this._parrent = parrent;
@@ -115,7 +147,7 @@ class UserCollectionWithDOM extends UserCollection {
 
     // генеруємо HTML код таблиці користувачі та форм редагування та додавання нового користувача
     render() {
-        this._parrent.innerHTML = this.usersToTableHtml + this.addFormHtml + this.editFormHtml;
+        this._parrent.innerHTML = this.searchInputHtml + this.usersToTableHtml + this.addFormHtml + this.editFormHtml;
     }
     // навішуємо слухачів події
     addEventListners() {
@@ -134,9 +166,14 @@ class UserCollectionWithDOM extends UserCollection {
             super.update(event.detail.id, event.detail);
             this.render();
         });
+
+        document.addEventListener("searchUser", event => {
+            this.searchString = event.detail.searchString;
+            this.render();
+        });
     }
 
-    createClickHadlers(){
+    createClickHadlers() {
         // функція вилучення користувача при кліці на відповідну кнопку. генерує подію deleteUser
         window.DeleteUser = (id) => {
             let deleteUserEvent = new CustomEvent("deleteUser", { detail: { id } });
@@ -165,7 +202,7 @@ class UserCollectionWithDOM extends UserCollection {
         // показуємо форму редагування та заповнюємо її значеннями користувача із вказаним id
         // оскіль в функції використовується super то тут можна використовуватит  ВИКЛЮЧНО ЛЯМБДА ФУНКЦІЮ!
         // Анонімна функція видасть помилку. Решта функцій не використовує super чи this, тому їх можна робити як лямбда так і анонімними
-        window. StartEditUser = (id) => {
+        window.StartEditUser = (id) => {
             document.getElementById("edit-user").style.display = "block";
 
             let user = super.getById(id); // знаходимо користувача із вказаним id 
@@ -191,9 +228,15 @@ class UserCollectionWithDOM extends UserCollection {
             });
             document.dispatchEvent(editUserEvent);
         }
+        // пошук
+        window.Search = () => {
+            const searchString = document.getElementById("searchByName").value;
+            let searchEvent = new CustomEvent("searchUser", { detail: { searchString } });
+            document.dispatchEvent(searchEvent);
+        }
     }
     // функція виводу повідомлень про помилку
-    addErrorMessage(){
+    addErrorMessage() {
         window.onerror = (error) => {
             alert(error);
         }

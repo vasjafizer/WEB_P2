@@ -28,3 +28,7 @@ form input {
 #add-user {
     display: none;
 }
+#serchByName{
+    width: 50%;
+    margin: 10px;
+}

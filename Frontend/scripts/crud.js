@@ -36,6 +36,10 @@ class UserCollection {
   getShortUsernames(len) {
     return this.items.filter(user => user.username.length <= len);
   }
+
+  getByUsernameStart(searchString) {
+    return this.items.filter(user => user.username.toLowerCase().startsWith(searchString.toLowerCase()));
+  }
   // Копія списку всіх користувачів
   getAll() {
     // return this.items;
