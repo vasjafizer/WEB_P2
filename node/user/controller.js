@@ -1,5 +1,6 @@
-const { users, maxId } = require("./model");
+const { users, Validator } = require("./model");
 
+let maxId = 2;
 const userController = {
     getAll: (req, res) => {
         res.send(users);
@@ -22,8 +23,7 @@ const userController = {
     post: (req, res) => {
         if (!req.body?.login || !req.body?.password)
             res.status(400).send("login and password are required");
-        const minLen = 3;
-        if (req.body?.login?.length < minLen)
+        if (!Validator.validateLogin(req.body?.login))
             res.status(400).send("login is to short");
         let user = {
             id: ++maxId,
@@ -41,8 +41,7 @@ const userController = {
         const user = users.find(user => user.id === id);
         if (!user)
             res.status(404).send("not found");
-        const minLen = 3;
-        if (req.body?.login && req.body?.login?.length < minLen)
+        if (!Validator.validateLogin(req.body?.login))
             res.status(400).send("login is to short");
 
         // if (req.body?.login)
@@ -53,11 +52,22 @@ const userController = {
         //     user.image = req.body.image;
 
         for (let prop of ["login", "password", "image"])
-            if (req.body[prop])
+            if (req.body && req.body[prop])
                 user[prop] = req.body[prop];
 
         res.send(user);
-    }
+    },
+    deleteById: (req, res) => {
+        const id = parseInt(req.params.id);
+        if (isNaN(id))
+            res.status(400).send("id is not a number");
+        const pos = users.findIndex(user => user.id === id);
+        if (pos == -1)
+            res.status(404).send("Not Found");
+        const deletedUser = users.splice(pos, 1);
+        res.send(deletedUser);
+    },
+   
 };
 
 

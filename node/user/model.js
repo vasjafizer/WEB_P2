@@ -10,11 +10,20 @@ let users = [
         id: 2,
         login: "Admin",
         password: "VeryLongPassword!",
-        imge: "https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819_960_720.png"
+        image: "https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819_960_720.png"
     }
 ];
 
+const Validator = {
+    minLength: 5,
+    validateLogin: function (login) {
+        console.log(login);
+        return login?.length >= this.minLength
+    }
+}
+
 module.exports = {
     users,
-    maxId
+    maxId,
+    Validator
 };

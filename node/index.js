@@ -1,6 +1,7 @@
 const express = require("express");
 const apiRouter = require("./api");
 const userRouter = require("./user");
+const userDbRouter = require("./uderdb");
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.use(express.json());
 
 app.use("/api", apiRouter);
 app.use("/user", userRouter);
+app.use("/userdb", userDbRouter);
 
 app.get("/about", (req, res) => {
     let author = "Yurii";
