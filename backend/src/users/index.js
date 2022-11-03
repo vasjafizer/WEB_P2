@@ -1,15 +1,15 @@
 // описвуэмо роутер з використанням контролеру
 const Router = require("express").Router;
-const bookController = require("./controller");
+const userController = require("./controller");
 
 const userRouter = new Router();
 
 //CRUD - визначаємо яку функцію викликати при якому запиту
-userRouter.get("/", bookController.getAll);
-userRouter.get("/:id", bookController.getById);
-userRouter.delete("/:id", bookController.delete);
-userRouter.post("/", bookController.post);
-userRouter.patch("/:id", bookController.patch);
+userRouter.get("/", userController.getAll);
+userRouter.get("/:id", userController.getById);
+userRouter.delete("/:id", userController.delete);
+userRouter.post("/", userController.post);
+userRouter.patch("/:id", userController.patch);
 
 //експортуэмо роутер
 module.exports = userRouter;

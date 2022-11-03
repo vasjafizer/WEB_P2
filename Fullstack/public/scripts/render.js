@@ -41,19 +41,19 @@ class UserCollectionWithDOM extends UserCollection {
 
     //допоміжний метод, який визначає яких користувачів требавиводити при рендері
 
-    getUsers() {
+    async getUsers() {
         // якщо  задане значення для пошуку шукаємо користувачів ім'я яких починається із вказаного значення
         if (this.searchString)
             return this.getByUsernameStart(this.searchString);
 
         // якщо не задане значення для пошуку, то виводимо всіх користувачів   
-        return this.getAll();
+        return await this.getAll();
     }
 
     // генеруємо таблицю користувачів
-    get usersToTableHtml() {
+    async getUsersToTableHtml() {
         //вибираємо яких користувачів шукати
-        let users = this.getUsers();
+        let users = await this.getUsers();
         //якщо для виводу нема користувачів, то показуэмо відповідне повідомлення
         if (users.length == 0)
             return `
@@ -137,17 +137,18 @@ class UserCollectionWithDOM extends UserCollection {
     }
 
     //монтуємо компонент у вказаний батьківський та призначаємо обробку подій
-    mount(parrent) {
+    async mount(parrent) {
         this._parrent = parrent;
-        this.render();
+        await this.render();
         this.addEventListners();
         this.createClickHadlers();
         this.addErrorMessage();
     }
 
     // генеруємо HTML код таблиці користувачі та форм редагування та додавання нового користувача
-    render() {
-        this._parrent.innerHTML = this.searchInputHtml + this.usersToTableHtml + this.addFormHtml + this.editFormHtml;
+    async render() {
+        const tableTemplate = await this.getUsersToTableHtml();
+        this._parrent.innerHTML = this.searchInputHtml + tableTemplate + this.addFormHtml + this.editFormHtml;
     }
     // навішуємо слухачів події
     addEventListners() {

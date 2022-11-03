@@ -41,10 +41,15 @@ class UserCollection {
     return this.items.filter(user => user.username.toLowerCase().startsWith(searchString.toLowerCase()));
   }
   // Копія списку всіх користувачів
-  getAll() {
+  async getAll() {
     // return this.items;
-    return [...this.items];
-    //випрпавити для захисту від зміни копії.
+    // return [...this.items];
+    let resp = await fetch("http://localhost:3000/users");
+    if (!resp.ok){
+      alert("Erroe Loading");
+      return [];
+    }
+    return await resp.json();
   }
   //оновлюємо дані користувача із вказаним id
   update(id, updatedUser) {
