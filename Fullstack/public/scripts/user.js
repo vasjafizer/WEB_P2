@@ -51,6 +51,7 @@ class User {
     this.username = userData["username"];
     this.password = userData["password"];
     this.image = userData["image"];
+    return this;
   }
 }
 

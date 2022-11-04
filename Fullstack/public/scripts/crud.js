@@ -28,7 +28,7 @@ class UserCollection {
       alert("Error creating user");
       return null;
     }
-    return await resp.json();
+    return new User().fromDict(await resp.json());
   }
 
   //знаходиомо користувача по id
@@ -52,9 +52,7 @@ class UserCollection {
   fromArray(userDataArray) {
     this.items = [];
     for (let userData of userDataArray) {
-      let user = new User();
-      user.fromDict(userData);
-      this.items.push(user);
+      this.items.push(new User().fromDict(userData));
     }
     return this.items;
   }
@@ -84,7 +82,7 @@ class UserCollection {
       alert("Error updating user");
       return null;
     }
-    return await resp.json();
+    return new User().fromDict(await resp.json());
   }
   // вилучення користувача із вказаним id
   async delete(id) {
@@ -97,6 +95,6 @@ class UserCollection {
       alert("Error deleting user");
       return null;
     }
-    return await resp.json();
+    return new User().fromDict(await resp.json());
   }
 }
