@@ -45,6 +45,14 @@ class User {
   get gettablePropertiesList() {
     return ["id", ...this.setablePropertisList];
   }
+
+  fromDict(userData){
+    this._id = userData["id"];
+    this.username = userData["username"];
+    this.password = userData["password"];
+    this.image = userData["image"];
+  }
 }
 
 User._idCounter = 0;
+

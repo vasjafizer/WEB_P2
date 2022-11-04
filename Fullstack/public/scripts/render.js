@@ -153,18 +153,18 @@ class UserCollectionWithDOM extends UserCollection {
     // навішуємо слухачів події
     addEventListners() {
         //вилучаємо користувача
-        document.addEventListener("deleteUser", event => {
-            super.delete(event.detail.id);
+        document.addEventListener("deleteUser", async event => {
+            await super.delete(event.detail.id);
             this.render();
         });
         // додаємо нового користувача
-        document.addEventListener("addUser", event => {
-            super.create(event.detail);
+        document.addEventListener("addUser", async event => {
+            await super.create(event.detail);
             this.render();
         });
         //редагуэмо користувача
-        document.addEventListener("editUser", event => {
-            super.update(event.detail.id, event.detail);
+        document.addEventListener("editUser", async event => {
+            await super.update(event.detail.id, event.detail);
             this.render();
         });
 
